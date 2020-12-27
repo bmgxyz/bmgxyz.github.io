@@ -27,7 +27,7 @@ brief pauses for thought live between all the useful speech. For the purposes of
 transcription, these silent moments carry zero information[^2]. The
 transcription system doesn't mind if they're missing. So let's take them out:
 
-```sox silence -l 1 0.3 -55d -1 0.3 -55d```
+```sox original.wav no-silence.wav silence -l 1 0.3 -55d -1 0.3 -55d```
 
 People have a wide range of speaking rates. Typically we measure these in words
 per minute, and most speakers fall between 100 and 200. Transcription systems
@@ -35,7 +35,7 @@ must handle all kinds of speakers, all with different rates. To pack more
 information into a shorter duration, we can speed up the input audio a little.
 The system again won't mind[^3].
 
-```sox tempo 1.25```
+```sox original.wav faster.wav tempo 1.25```
 
 I tested these techniques on podcast audio, both separately and together. In
 general I managed a 20 or 25% decrease in duration. 20% comes from the 25% tempo
